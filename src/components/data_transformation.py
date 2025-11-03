@@ -13,6 +13,7 @@ from src.logger import logging
 import os
 
 from src.utils import save_object
+from src.utils import evaluate_models
 
 @dataclass
 class DataTransformationConfig:
@@ -23,7 +24,7 @@ class DataTransformation:
         self.data_transformation_config=DataTransformationConfig()
 
     def get_data_transformer_object(self):
-        try:
+        try: 
             numerical_columns = ["writing_score", "reading_score"]
             categorical_columns = [
                 "gender",
@@ -112,5 +113,7 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e,sys)
+        
+
         
     
